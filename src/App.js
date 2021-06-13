@@ -5,18 +5,38 @@ import './App.css';
 export default class App extends React.Component{
   constructor(props){
     super(props);
-    this.state = {mesaj:"0",}
+    this.state = {mesaj:"0",term1:0,term2:0,opr:null,}
     this.resetdisplay= this.resetdisplay.bind(this);
   }
+  
   resetdisplay(){
     this.setState({mesaj:"0"});
   };
 
+  aduna(){
+    var nr=Number(this.state.mesaj);
+    this.setState({term1:nr,opr:"+",});
+  }
+
   test(nr){
     if (this.state.mesaj==="0"){
-      var msg=nr;
+      if (nr==="."){
+        var msg=this.state.mesaj+nr;       
+      }
+      else{
+        msg=nr;
+      }
     }else{
-    msg=this.state.mesaj+nr;
+      if (nr==="."){
+        if (this.state.mesaj.indexOf(nr)===-1){
+          msg=this.state.mesaj+nr;       
+        }else{
+        msg=this.state.mesaj;
+        }
+      }
+      else{
+        msg=this.state.mesaj+nr;
+      }
     };
     this.setState({mesaj:msg});   
   }
@@ -42,7 +62,7 @@ export default class App extends React.Component{
       <button className="component-button" onClick={()=>this.test('1')}>1</button>
       <button className="component-button" onClick={()=>this.test('2')}>2</button>
       <button className="component-button" onClick={()=>this.test('3')}>3</button>
-      <button className="component-operation"/*onClick={aduna(operatii.value)}*/>+</button>
+      <button className="component-operation"onClick={()=>this.aduna()}>+</button>
       </div>
       <div>
       <button className="component-button" onClick={()=>this.test('0')}>0</button>
