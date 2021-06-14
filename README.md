@@ -1,4 +1,5 @@
 #Simple/Basic calculator written in React to get familiar with it's concepts
+
 //ToDo better styling, maybe add some more operations (sin, cos, also +/- sign change)
 
 # Getting Started with Create React App
