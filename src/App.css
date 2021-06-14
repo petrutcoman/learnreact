@@ -15,15 +15,18 @@
 }
 
 .display-comp {
+  margin: 1px;
   margin-bottom: 5px;
   justify-self: center;
   justify-content: right;
   text-align: right;
   padding-right: 5px;
+  padding-bottom: 5px;
   width: 350px;
   font-size: 2em;
   background-color: #6c6c6d;
   color: white;
+  
 }
 
 .component-button {
